@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1395338882 source:/home/maxx/ldf-coloring-master/src/main.c
+	<stdio.h>
+	<stdlib.h>
+	"include/graph.h"
+
+1395133707 source:/home/maxx/ldf-coloring-master/src/ldf.c
+
+1395334586 /home/maxx/ldf-coloring-master/src/include/graph.h
+
+1395335572 source:/home/maxx/ldf-coloring-master/src/graph.c
+	<stdlib.h>
+	"include/graph.h"
+
