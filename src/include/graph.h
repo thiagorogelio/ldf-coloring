@@ -7,7 +7,6 @@ typedef struct Adj {
 } Adj;
 
 typedef struct Adj_list {
-    short ct;
     struct Adj *first;
     struct Adj *last;
 } Adj_list;
@@ -24,11 +23,10 @@ typedef struct Edge {
 
 typedef struct Graph {
     struct Vertex *V;
-    struct Edge *E;
 } Graph;
 
 Graph *newGraph(short);
 void addEdge(Graph*,short,short);
-int delEdge(Vertex*,Vertex*);
+Graph *loadFile(char*);
 
 #endif
