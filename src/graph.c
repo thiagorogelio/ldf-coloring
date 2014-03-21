@@ -23,7 +23,8 @@ Graph *loadFile(char file[]){
 
 Graph *newGraph(short n_vertexs){
     Graph *G = malloc(sizeof(Graph));
-    G->V = calloc(n_vertexs, sizeof(Vertex));
+    G->v_count = n_vertexs;
+    G->V = calloc(n_vertexs+1, sizeof(Vertex));
     return G;
 }
 
@@ -36,4 +37,6 @@ void addEdge(Graph *G, short from, short to){
         G->V[from].adj.first = n_adj;
     G->V[from].adj.last = n_adj;
     G->V[from].degree++;
+//    if(G->V[from].degree > G->high_degree)
+//        G->high_degree = G->V[from].degree;
 }

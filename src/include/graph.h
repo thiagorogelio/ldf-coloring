@@ -22,6 +22,8 @@ typedef struct Edge {
 } Edge;
 
 typedef struct Graph {
+    int high_degree;
+    int v_count;
     struct Vertex *V;
 } Graph;
 
