@@ -2,12 +2,8 @@
 #include <string.h>
 #include "include/ldf.h"
 
-int main()//int argc, char **argv)
+int main(int argc, char **argv)
 {
-    int argc = 3;
-    char **argv;
-    argv[1] = "-s";
-    argv[2] = "gcol10.txt";
     if(argc <= 2)
        printf("Usage: ./ldf-coloring [-s/-p] [input graph file]\n");
     else

@@ -22,14 +22,14 @@ typedef struct Edge {
 } Edge;
 
 typedef struct Graph {
-    int high_degree;
-    int v_count;
+    size_t high_degree;
+    size_t v_count;
     struct Vertex *V;
 } Graph;
 
-Graph *newGraph(short);
+Graph *newGraph(size_t);
 void addAdjinList(Adj_list*,Vertex*);
-void addEdge(Graph*,short,short);
+void addEdge(Graph*,size_t,short);
 Graph *loadFile(char*);
 
 #endif

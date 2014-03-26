@@ -42,14 +42,14 @@
 1395804634 /home/maxx/ldf-coloring/src/include/ldf.h
 	"graph.h"
 
-1395805568 /home/maxx/ldf-coloring/src/include/graph.h
+1395807937 /home/maxx/ldf-coloring/src/include/graph.h
 
 1395805933 source:/home/maxx/ldf-coloring/src/main.c
 	<stdio.h>
 	<string.h>
 	"include/ldf.h"
 
-1395805983 source:/home/maxx/ldf-coloring/src/graph.c
+1395807937 source:/home/maxx/ldf-coloring/src/graph.c
 	<stdlib.h>
 	<stdio.h>
 	"include/graph.h"
