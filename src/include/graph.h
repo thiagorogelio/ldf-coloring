@@ -28,6 +28,7 @@ typedef struct Graph {
 } Graph;
 
 Graph *newGraph(short);
+void addAdjinList(Adj_list*,Vertex*);
 void addEdge(Graph*,short,short);
 Graph *loadFile(char*);
 

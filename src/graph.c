@@ -3,7 +3,6 @@
 #include "include/graph.h"
 
 Graph *loadFile(char file[]){
-    char c;
     FILE* fd;
     if ((fd=fopen(file,"rb")) == NULL) {
        printf("\nFile not found! ");
@@ -18,7 +17,9 @@ Graph *loadFile(char file[]){
             addEdge(G, atoi(in1), atoi(in2));
         }
         fclose(fd);
+        return G;
     }
+    exit(1);
 }
 
 Graph *newGraph(short n_vertexs){
@@ -28,15 +29,19 @@ Graph *newGraph(short n_vertexs){
     return G;
 }
 
-void addEdge(Graph *G, short from, short to){
+void addAdjinList(Adj_list *from_l,Vertex *to){
     Adj *n_adj = malloc(sizeof (Adj));
-    n_adj->vertex = &G->V[to];
-    if(G->V[from].adj.first)
-        G->V[from].adj.last->next = n_adj;
+    n_adj->vertex = to;
+    if(from_l->first)
+        from_l->last->next = n_adj;
     else
-        G->V[from].adj.first = n_adj;
-    G->V[from].adj.last = n_adj;
+        from_l->first = n_adj;
+    from_l->last = n_adj;
+}
+
+void addEdge(Graph *G, short from, short to){
+    addAdjinList(&G->V[from].adj, &G->V[to]);
     G->V[from].degree++;
-//    if(G->V[from].degree > G->high_degree)
-//        G->high_degree = G->V[from].degree;
+    if(G->V[from].degree > G->high_degree)
+        G->high_degree = G->V[from].degree;
 }

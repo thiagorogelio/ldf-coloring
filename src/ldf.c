@@ -1,24 +1,26 @@
 #include <stdlib.h>
+#include <omp.h>
 #include "include/ldf.h"
 
-// graph.c
-void add_adjinList(Adj_list lst, int a){}
-
 Adj_list *sgenOrdList(Graph *G){
-    Adj_list *ordlist = calloc(ORD_LIST_BASE_SIZE, sizeof(Adj_list));
-    int i;
+    Adj_list *ordlist = calloc(G->high_degree+1, sizeof(Adj_list));
+    size_t i;
     for(i=1;i<G->v_count+1;i++)
-        add_adjinList(ordlist[G->V[i].degree], i);
+        addAdjinList(&ordlist[G->V[i].degree], &G->V[i]);
     return ordlist;
 }
 
 Adj_list *pgenOrdList(Graph *G){
-        Adj_list *ordlist = calloc(ORD_LIST_BASE_SIZE, sizeof(Adj_list));
-
-
+    Adj_list *ordlist = calloc(G->high_degree+1, sizeof(Adj_list));
+    size_t i;
+    //#pragma omp parallel for
+    for(i=1;i<G->v_count+1;i++){
+        addAdjinList(&ordlist[G->V[i].degree], &G->V[i]);}
 
     return ordlist;
 }
 
 void pLDF(Graph *G){};
-void sLDF(Graph *G){};
+void sLDF(Graph *G){
+        Adj_list *adj = pgenOrdList(G);
+};
